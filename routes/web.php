@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('home');
 //});
-//
 //Route::get('tasks', function () {
 //    return view('tasks.index')
 //        ->with('tasks', Task::all());
@@ -15,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'welcome');
 // Passing simple data to Route::view()
 Route::view('/', 'welcome', ['User' => 'Michael']);
+//
 
