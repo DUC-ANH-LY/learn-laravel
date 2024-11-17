@@ -3,22 +3,13 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('users/{id}/friends', function ($id) {
-    dd($id);
-});
+// with url helper
+/*<a href="<?php echo url('/'); ?>">*/
+//// Outputs <a href="http://myapp.com/">
 
 
-Route::get('users/{id?}', function ($id = 'fallbackId') {
-    dd($id);
-});
-
-Route::get('users/{id}', function ($id) {
-    //
-})->where('id', '[0-9]+');
-Route::get('users/{username}', function ($username) {
-    //
-})->where('username', '[A-Za-z]+');
-Route::get('posts/{id}/{slug}', function ($id, $slug) {
-    //
-})->where(['id' => '[0-9]+', 'slug' => '[A-Za-z]+']);
-
+// Defining a route with name() in routes/web.php:
+Route::get('members/{id}', 'MembersController@show')->name('members.show');
+// Linking the route in a view using the route() helper:
+// on view blade template
+/*<a href="<?php echo route('members.show', ['id' => 14]); ?>">*/
