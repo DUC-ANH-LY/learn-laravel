@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
         //
 
         Blade::component('partials.modal', 'modal');
-
+        view()->share('recentPosts', 'tesst');
     }
 }
