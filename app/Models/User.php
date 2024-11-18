@@ -45,4 +45,25 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+//    scope
+
+    public function scopeTest($query) {
+        return $query->where('name','like','%d%');
+    }
+
+//    protected static function boot()
+//    {
+//        parent::boot();
+//        static::addGlobalScope('active', function (Builder $builder) {
+//            $builder->where('active', true);
+//        });
+//    }
+
+    public function getEmailAttribute($value)
+    {
+        return $value ?: '(No email provided)';
+    }
+
+
 }
