@@ -11,3 +11,4 @@ Route::get('passing-data-to-views', function () {
         ->with('key', 'value');
 });
 
+

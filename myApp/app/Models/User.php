@@ -66,4 +66,13 @@ class User extends Authenticatable
     }
 
 
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value == 'ducanh'? $value : 'test';
+    }
+
+
+
+
+
 }

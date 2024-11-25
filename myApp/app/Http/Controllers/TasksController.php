@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PodcastProcessed;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,8 @@ class TasksController extends Controller
 {
     public function index()
     {
+        event(new PodcastProcessed());
+
         return view('home');
     }
     public function testScope() {
