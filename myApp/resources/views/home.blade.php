@@ -1,6 +1,16 @@
-<h2>Tasks</h2>
+<h2>Users and Their Tasks</h2>
 <ul>
-    @foreach ( User::find(1)->tasks as $task)
-        <li>{{ $task->title }} - {{ $task->description }}</li>
+    @php
+        $users = \App\Models\User::all(); // Fetch all users
+    @endphp
+    @foreach ($users as $user)
+        <li>
+            <strong>{{ $user->name }}</strong>
+            <ul>
+                @foreach ($user->tasks as $task) {{-- This causes an N+1 problem --}}
+                    <li>{{ $task->title }} - {{ $task->description }}</li>
+                @endforeach
+            </ul>
+        </li>
     @endforeach
 </ul>
