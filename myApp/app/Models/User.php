@@ -46,19 +46,20 @@ class User extends Authenticatable
         ];
     }
 
-//    scope
+    //    scope
 
-    public function scopeTest($query) {
-        return $query->where('name','like','%d%');
+    public function scopeTest($query)
+    {
+        return $query->where('name', 'like', '%d%');
     }
 
-//    protected static function boot()
-//    {
-//        parent::boot();
-//        static::addGlobalScope('active', function (Builder $builder) {
-//            $builder->where('active', true);
-//        });
-//    }
+    //    protected static function boot()
+    //    {
+    //        parent::boot();
+    //        static::addGlobalScope('active', function (Builder $builder) {
+    //            $builder->where('active', true);
+    //        });
+    //    }
 
     public function getEmailAttribute($value)
     {
@@ -68,11 +69,14 @@ class User extends Authenticatable
 
     public function setNameAttribute($value)
     {
-        $this->attributes['name'] = $value == 'ducanh'? $value : 'test';
+        $this->attributes['name'] = $value == 'ducanh' ? $value : 'test';
     }
 
-
-
-
-
+    /**
+     * Get the tasks for the user.
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
